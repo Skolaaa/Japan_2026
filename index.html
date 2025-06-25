@@ -1,0 +1,134 @@
+<!-- FILE: index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japan Winter Adventure 2025 | Interactive Travel Map</title>
+    <meta name="description" content="Follow my 3-week winter adventure through Japan from Tokyo to the Japanese Alps to Kansai - January 18 to February 7, 2025">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
+          crossorigin=""/>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗾</text></svg>">
+</head>
+<body>
+    <header class="header">
+        <h1>🗾 Japan Winter Adventure 2025</h1>
+        <p class="subtitle">January 18 - February 7 • Interactive Travel Map</p>
+    </header>
+
+    <main>
+        <div id="map" class="map-container" aria-label="Interactive map showing Japan travel route"></div>
+
+        <section class="info-panel">
+            <div class="week-section week-1">
+                <h2 class="week-title">🏙️ Week 1: Tokyo Discovery (Days 1-7)</h2>
+                <div class="destinations">
+                    <button class="destination" onclick="focusLocation(35.6762, 139.6503, 'Tokyo')" aria-label="Focus on Tokyo">
+                        <div class="destination-name">Tokyo</div>
+                        <div class="destination-days">Base • Modern culture & temples</div>
+                    </button>
+                    <button class="destination" onclick="focusLocation(36.7581, 139.6239, 'Nikko')" aria-label="Focus on Nikko">
+                        <div class="destination-name">Nikko</div>
+                        <div class="destination-days">Day 4 • UNESCO temples</div>
+                    </button>
+                    <button class="destination" onclick="focusLocation(35.2322, 139.1069, 'Hakone')" aria-label="Focus on Hakone">
+                        <div class="destination-name">Hakone</div>
+                        <div class="destination-days">Day 5 • Hot springs & Mt. Fuji</div>
+                    </button>
+                    <button class="destination" onclick="focusLocation(35.3186, 139.5439, 'Kamakura')" aria-label="Focus on Kamakura">
+                        <div class="destination-name">Kamakura</div>
+                        <div class="destination-days">Day 6 • Great Buddha & zen</div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="week-section week-2">
+                <h2 class="week-title">🏔️ Week 2: Japanese Alps & Snow Country (Days 8-12)</h2>
+                <div class="destinations">
+                    <button class="destination" onclick="focusLocation(36.6513, 138.1814, 'Nagano')" aria-label="Focus on Nagano">
+                        <div class="destination-name">Nagano</div>
+                        <div class="destination-days">Days 8-9 • Snow monkeys</div>
+                    </button>
+                    <button class="destination" onclick="focusLocation(36.2388, 137.9697, 'Matsumoto')" aria-label="Focus on Matsumoto">
+                        <div class="destination-name">Matsumoto</div>
+                        <div class="destination-days">Day 10 • Historic castle</div>
+                    </button>
+                    <button class="destination" onclick="focusLocation(36.1428, 137.2531, 'Takayama')" aria-label="Focus on Takayama">
+                        <div class="destination-name">Takayama</div>
+                        <div class="destination-days">Days 11-12 • Traditional towns</div>
+                    </button>
+                    <button class="destination" onclick="focusLocation(36.2586, 136.9066, 'Shirakawa-go')" aria-label="Focus on Shirakawa-go">
+                        <div class="destination-name">Shirakawa-go</div>
+                        <div class="destination-days">Day 12 • UNESCO village</div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="week-section week-3">
+                <h2 class="week-title">🏯 Week 3: Kansai Culture & Tokyo Shopping (Days 13-21)</h2>
+                <div class="destinations">
+                    <button class="destination" onclick="focusLocation(35.0116, 135.7681, 'Kyoto')" aria-label="Focus on Kyoto">
+                        <div class="destination-name">Kyoto</div>
+                        <div class="destination-days">Days 13-15 • Traditional Japan</div>
+                    </button>
+                    <button class="destination" onclick="focusLocation(34.6851, 135.8048, 'Nara')" aria-label="Focus on Nara">
+                        <div class="destination-name">Nara</div>
+                        <div class="destination-days">Day 16 • Ancient capital & deer</div>
+                    </button>
+                    <button class="destination" onclick="focusLocation(34.6937, 135.5023, 'Osaka')" aria-label="Focus on Osaka">
+                        <div class="destination-name">Osaka</div>
+                        <div class="destination-days">Days 17-18 • Food paradise</div>
+                    </button>
+                    <button class="destination" onclick="focusLocation(35.6762, 139.6503, 'Tokyo Return')" aria-label="Focus on Tokyo Return">
+                        <div class="destination-name">Tokyo Return</div>
+                        <div class="destination-days">Days 19-21 • Shopping finale</div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="legend">
+                <h3>Map Legend</h3>
+                <div class="legend-item">
+                    <div class="legend-color week-1-color"></div>
+                    <span>Week 1: Tokyo Base & Day Trips</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color week-2-color"></div>
+                    <span>Week 2: Japanese Alps & Snow Country</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color week-3-color"></div>
+                    <span>Week 3: Kansai Culture Circuit</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color day-trip-color"></div>
+                    <span>Day Trip Destinations</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        💰 This map is completely free! Built with Leaflet + OpenStreetMap • Hosted on GitHub Pages for $0/month
+    </footer>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" 
+            crossorigin=""></script>
+    
+    <!-- Travel Data -->
+    <script src="assets/js/travel-data.js"></script>
+    
+    <!-- Main Application -->
+    <script src="assets/js/map.js"></script>
+</body>
+</html>
