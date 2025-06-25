@@ -1,0 +1,157 @@
+FILE: .nojekyll
+(This file should be empty - it tells GitHub Pages to skip Jekyll processing)
+
+---
+
+FILE: README.md
+# Japan Winter Adventure 2025 🗾
+
+An interactive travel map showcasing my 3-week winter journey through Japan from January 18 to February 7, 2025.
+
+## 🗺️ Live Map
+Visit the interactive map: [https://yourusername.github.io/japan-travel-map](https://yourusername.github.io/japan-travel-map)
+
+## 📍 Itinerary Overview
+
+### Week 1: Tokyo Discovery (Days 1-7)
+- **Tokyo** - Base for modern culture, temples, and city exploration
+- **Nikko** - UNESCO World Heritage temples and winter scenery
+- **Hakone** - Hot springs and Mount Fuji views
+- **Kamakura** - Great Buddha and traditional zen culture
+
+### Week 2: Japanese Alps & Snow Country (Days 8-12)
+- **Nagano** - Famous snow monkeys and mountain hot springs
+- **Matsumoto** - Historic black castle and traditional crafts
+- **Takayama** - Traditional architecture and Hida beef
+- **Shirakawa-go** - UNESCO World Heritage thatched-roof village
+
+### Week 3: Kansai Culture & Tokyo Shopping (Days 13-21)
+- **Kyoto** - Traditional temples, gardens, and geisha districts
+- **Nara** - Ancient capital with friendly deer and Setsubun festival
+- **Osaka** - Food paradise with street food culture
+- **Tokyo Return** - Shopping finale in Ginza and Harajuku
+
+## 🛠️ Technical Details
+
+Built with:
+- **Leaflet.js** - Open-source mapping library
+- **OpenStreetMap** - Free map data
+- **GitHub Pages** - Free hosting
+- **Vanilla JavaScript** - No frameworks needed
+
+### Features:
+- ✅ Completely free (no API keys required)
+- ✅ Mobile-responsive design
+- ✅ Accurate geographic coordinates
+- ✅ Interactive route visualization
+- ✅ Detailed destination information
+- ✅ Offline-capable design
+
+## 🚀 Setup Instructions
+
+1. **Fork this repository** or download the files
+2. **Create a new GitHub repository** (name it anything you like)
+3. **Upload all files** maintaining the folder structure:
+   ```
+   your-repo/
+   ├── index.html
+   ├── .nojekyll
+   ├── README.md
+   └── assets/
+       ├── css/
+       │   └── styles.css
+       └── js/
+           ├── travel-data.js
+           └── map.js
+   ```
+4. **Enable GitHub Pages** in repository Settings → Pages
+5. **Visit your live site** at `https://yourusername.github.io/repository-name`
+
+## 📱 Customization
+
+### Adding Your Own Destinations:
+1. Edit `assets/js/travel-data.js`
+2. Update coordinates using [LatLong.net](https://www.latlong.net/)
+3. Modify colors, descriptions, and highlights
+4. Commit changes to see them live
+
+### Changing Colors:
+1. Edit CSS custom properties in `assets/css/styles.css`
+2. Update `TRAVEL_DATA` color values in `travel-data.js`
+
+### Adding Photos:
+1. Create an `assets/images/` folder
+2. Add photos and reference them in popup content
+3. Keep images under 1MB for fast loading
+
+## 🌐 Browser Support
+- ✅ Chrome/Edge (latest)
+- ✅ Firefox (latest)  
+- ✅ Safari (latest)
+- ✅ Mobile browsers
+- ✅ Works offline after first load
+
+## 📄 License
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Credits
+- Map data © [OpenStreetMap](https://www.openstreetmap.org/) contributors
+- Mapping library: [Leaflet.js](https://leafletjs.com/)
+- Hosting: [GitHub Pages](https://pages.github.com/)
+- Icons: Emoji (built into browsers)
+
+---
+
+⭐ **Star this repository** if you found it helpful for your own travel mapping projects!
+
+---
+
+FILE: LICENSE
+MIT License
+
+Copyright (c) 2025 [Your Name]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+FILE: CNAME
+(Only create this file if you have a custom domain)
+your-custom-domain.com
+
+---
+
+FILE: robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://yourusername.github.io/japan-travel-map/sitemap.xml
+
+---
+
+FILE: sitemap.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://yourusername.github.io/japan-travel-map/</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
