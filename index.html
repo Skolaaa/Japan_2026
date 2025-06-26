@@ -1,134 +1,363 @@
-<!-- FILE: index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Japan Winter Adventure 2025 | Interactive Travel Map</title>
-    <meta name="description" content="Follow my 3-week winter adventure through Japan from Tokyo to the Japanese Alps to Kansai - January 18 to February 7, 2025">
+    <meta name="description" content="Follow my optimized 21-day winter adventure through Japan: Tokyo → Mt. Fuji → Japanese Alps → Kyoto → Osaka | January 18 - February 7, 2025">
+    <meta name="keywords" content="Japan travel, winter itinerary, Tokyo, Mt. Fuji, Kyoto, Osaka, travel map">
+    
+    <!-- Open Graph metadata for social sharing -->
+    <meta property="og:title" content="Japan Winter Adventure 2025">
+    <meta property="og:description" content="Interactive 21-day winter journey through Japan with animated route and timeline">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://skolaaa.github.io/Japan_2026/">
     
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
           crossorigin=""/>
     
+    <!-- Leaflet Plugins CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.timeline@1.5.0/dist/leaflet.timeline.css">
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
     
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗾</text></svg>">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="assets/js/travel_data.js" as="script">
+    <link rel="preload" href="assets/js/map.js" as="script">
 </head>
 <body>
     <header class="header">
         <h1>🗾 Japan Winter Adventure 2025</h1>
-        <p class="subtitle">January 18 - February 7 • Interactive Travel Map</p>
+        <p class="subtitle">January 18 - February 7 • Optimized 21-Day Route with Interactive Timeline</p>
+        <div class="trip-stats">
+            <span class="stat">📍 5 Base Locations</span>
+            <span class="stat">💰 ¥431,000 Total Budget</span>
+            <span class="stat">🚄 Optimized Transportation</span>
+        </div>
     </header>
 
     <main>
-        <div id="map" class="map-container" aria-label="Interactive map showing Japan travel route"></div>
+        <!-- Interactive Map with Timeline Controls -->
+        <div class="map-timeline-container">
+            <div id="map" class="map-container" aria-label="Interactive map showing Japan winter travel route with animation"></div>
+            
+            <!-- Timeline Controls -->
+            <div class="timeline-controls" role="region" aria-label="Travel timeline controls">
+                <div class="timeline-header">
+                    <h3>📅 Daily Timeline</h3>
+                    <div class="timeline-info">
+                        <span id="current-day">Day 1</span>
+                        <span id="current-date">January 18, 2025</span>
+                        <span id="current-location">Tokyo</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-slider-container">
+                    <input type="range" 
+                           id="timeline-slider" 
+                           min="1" 
+                           max="21" 
+                           value="1" 
+                           class="timeline-slider"
+                           aria-label="Navigate through 21-day itinerary">
+                    <div class="timeline-markers">
+                        <span class="marker tokyo" data-day="1">Tokyo</span>
+                        <span class="marker fuji" data-day="8">Mt. Fuji</span>
+                        <span class="marker alps" data-day="11">Alps</span>
+                        <span class="marker kyoto" data-day="15">Kyoto</span>
+                        <span class="marker osaka" data-day="19">Osaka</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-controls-buttons">
+                    <button id="play-pause" class="control-btn" aria-label="Play/pause timeline animation">
+                        <span class="icon">▶️</span>
+                        <span class="text">Play Route</span>
+                    </button>
+                    <button id="reset-timeline" class="control-btn" aria-label="Reset timeline to beginning">
+                        <span class="icon">⏮️</span>
+                        <span class="text">Reset</span>
+                    </button>
+                    <button id="show-full-route" class="control-btn" aria-label="Show complete route">
+                        <span class="icon">🗺️</span>
+                        <span class="text">Full Route</span>
+                    </button>
+                </div>
+            </div>
+        </div>
 
+        <!-- Enhanced Itinerary Information -->
         <section class="info-panel">
-            <div class="week-section week-1">
-                <h2 class="week-title">🏙️ Week 1: Tokyo Discovery (Days 1-7)</h2>
-                <div class="destinations">
-                    <button class="destination" onclick="focusLocation(35.6762, 139.6503, 'Tokyo')" aria-label="Focus on Tokyo">
-                        <div class="destination-name">Tokyo</div>
-                        <div class="destination-days">Base • Modern culture & temples</div>
+            <!-- Week 1: Tokyo Foundation -->
+            <div class="location-section tokyo-section">
+                <div class="location-header">
+                    <h2 class="location-title">🏙️ Tokyo - Cultural Foundation</h2>
+                    <div class="location-meta">
+                        <span class="duration">7 nights • January 18-25</span>
+                        <span class="base-indicator">📍 Base Location</span>
+                    </div>
+                </div>
+                
+                <div class="location-content">
+                    <div class="highlights">
+                        <h3>Winter Highlights</h3>
+                        <ul>
+                            <li>🏮 Winter illuminations at Marunouchi & Roppongi</li>
+                            <li>⛩️ Meiji Shrine New Year celebrations</li>
+                            <li>🗼 Crystal clear Tokyo Skytree views</li>
+                            <li>🍜 Hot street food at Tsukiji Market</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="accommodations">
+                        <h3>Recommended Stay: Shinjuku Area</h3>
+                        <div class="accommodation-grid">
+                            <div class="acc-tier luxury">
+                                <h4>Luxury (¥40,000-65,000)</h4>
+                                <p>Mandarin Oriental Tokyo, Park Hyatt Tokyo</p>
+                            </div>
+                            <div class="acc-tier mid-range">
+                                <h4>Mid-Range (¥15,000-28,000)</h4>
+                                <p>Hotel Century Southern Tower, Hotel Indigo Shibuya</p>
+                            </div>
+                            <div class="acc-tier budget">
+                                <h4>Budget (¥8,000-12,000)</h4>
+                                <p>Sotetsu Fresa Inn Higashi Shinjuku</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="location-focus-btn" onclick="focusLocation('tokyo')" aria-label="Focus map on Tokyo">
+                    View on Map 🗺️
+                </button>
+            </div>
+
+            <!-- Mt. Fuji Area -->
+            <div class="location-section fuji-section">
+                <div class="location-header">
+                    <h2 class="location-title">🗻 Kawaguchi-ko - Mt. Fuji Base</h2>
+                    <div class="location-meta">
+                        <span class="duration">3 nights • January 25-28</span>
+                        <span class="seasonal-event">🎆 Winter Fireworks Season</span>
+                    </div>
+                </div>
+                
+                <div class="location-content">
+                    <div class="highlights">
+                        <h3>Perfect Timing</h3>
+                        <ul>
+                            <li>🎆 Lake Kawaguchi Winter Fireworks (Jan 25-Feb 23)</li>
+                            <li>🏔️ Highest Mt. Fuji visibility rates in winter</li>
+                            <li>📸 Iconic reflection photography at sunrise</li>
+                            <li>♨️ Traditional ryokan onsen experience</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pro-tip">
+                        <h4>💡 Pro Tip</h4>
+                        <p>Book lakeside ryokan with Mt. Fuji views for the ultimate fireworks viewing experience. Best photography: early morning for reflections!</p>
+                    </div>
+                </div>
+                
+                <button class="location-focus-btn" onclick="focusLocation('kawaguchi')" aria-label="Focus map on Kawaguchi-ko">
+                    View on Map 🗺️
+                </button>
+            </div>
+
+            <!-- Japanese Alps -->
+            <div class="location-section alps-section">
+                <div class="location-header">
+                    <h2 class="location-title">🏔️ Takayama - Japanese Alps</h2>
+                    <div class="location-meta">
+                        <span class="duration">4 nights • January 28 - February 1</span>
+                        <span class="seasonal-event">✨ Shirakawa-go Illuminations</span>
+                    </div>
+                </div>
+                
+                <div class="location-content">
+                    <div class="highlights">
+                        <h3>Alpine Culture</h3>
+                        <ul>
+                            <li>✨ Shirakawa-go winter illuminations (Feb 1)</li>
+                            <li>🍶 Seven historic sake breweries (100+ years)</li>
+                            <li>🥩 Premium Hida beef experiences</li>
+                            <li>🏮 Miyagawa Morning Market in snow</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="critical-timing">
+                        <h4>⚠️ Critical Timing</h4>
+                        <p>Shirakawa-go winter illumination on February 1 requires advance reservations. Book organized tour from Takayama or reserve parking well ahead.</p>
+                    </div>
+                </div>
+                
+                <button class="location-focus-btn" onclick="focusLocation('takayama')" aria-label="Focus map on Takayama">
+                    View on Map 🗺️
+                </button>
+            </div>
+
+            <!-- Kansai Region -->
+            <div class="location-section kansai-section">
+                <div class="location-header">
+                    <h2 class="location-title">🏯 Kansai Cultural Circuit</h2>
+                    <div class="location-meta">
+                        <span class="duration">7 nights • February 1-7</span>
+                        <span class="base-indicator">📍 Kyoto (4) + Osaka (3)</span>
+                    </div>
+                </div>
+                
+                <div class="location-content">
+                    <div class="dual-cities">
+                        <div class="city kyoto">
+                            <h3>🏛️ Kyoto Traditional</h3>
+                            <ul>
+                                <li>❄️ Kinkaku-ji Golden Pavilion in snow</li>
+                                <li>⛩️ Fushimi Inari with fewer crowds</li>
+                                <li>🌸 Early plum blossoms at Kitano Tenmangu</li>
+                                <li>🕯️ Winter illuminations at Kodai-ji</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="city osaka">
+                            <h3>🍜 Osaka Food Paradise</h3>
+                            <ul>
+                                <li>🐙 Hot takoyaki in Dotonbori district</li>
+                                <li>🥞 Warm okonomiyaki experiences</li>
+                                <li>🦐 Fresh seafood at Kuromon Market</li>
+                                <li>🏰 Winter views from Osaka Castle</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="location-buttons">
+                    <button class="location-focus-btn" onclick="focusLocation('kyoto')" aria-label="Focus map on Kyoto">
+                        Kyoto Map 🗺️
                     </button>
-                    <button class="destination" onclick="focusLocation(36.7581, 139.6239, 'Nikko')" aria-label="Focus on Nikko">
-                        <div class="destination-name">Nikko</div>
-                        <div class="destination-days">Day 4 • UNESCO temples</div>
-                    </button>
-                    <button class="destination" onclick="focusLocation(35.2322, 139.1069, 'Hakone')" aria-label="Focus on Hakone">
-                        <div class="destination-name">Hakone</div>
-                        <div class="destination-days">Day 5 • Hot springs & Mt. Fuji</div>
-                    </button>
-                    <button class="destination" onclick="focusLocation(35.3186, 139.5439, 'Kamakura')" aria-label="Focus on Kamakura">
-                        <div class="destination-name">Kamakura</div>
-                        <div class="destination-days">Day 6 • Great Buddha & zen</div>
+                    <button class="location-focus-btn" onclick="focusLocation('osaka')" aria-label="Focus map on Osaka">
+                        Osaka Map 🗺️
                     </button>
                 </div>
             </div>
 
-            <div class="week-section week-2">
-                <h2 class="week-title">🏔️ Week 2: Japanese Alps & Snow Country (Days 8-12)</h2>
-                <div class="destinations">
-                    <button class="destination" onclick="focusLocation(36.6513, 138.1814, 'Nagano')" aria-label="Focus on Nagano">
-                        <div class="destination-name">Nagano</div>
-                        <div class="destination-days">Days 8-9 • Snow monkeys</div>
-                    </button>
-                    <button class="destination" onclick="focusLocation(36.2388, 137.9697, 'Matsumoto')" aria-label="Focus on Matsumoto">
-                        <div class="destination-name">Matsumoto</div>
-                        <div class="destination-days">Day 10 • Historic castle</div>
-                    </button>
-                    <button class="destination" onclick="focusLocation(36.1428, 137.2531, 'Takayama')" aria-label="Focus on Takayama">
-                        <div class="destination-name">Takayama</div>
-                        <div class="destination-days">Days 11-12 • Traditional towns</div>
-                    </button>
-                    <button class="destination" onclick="focusLocation(36.2586, 136.9066, 'Shirakawa-go')" aria-label="Focus on Shirakawa-go">
-                        <div class="destination-name">Shirakawa-go</div>
-                        <div class="destination-days">Day 12 • UNESCO village</div>
-                    </button>
+            <!-- Transportation Optimization -->
+            <div class="info-section transport-optimization">
+                <h2 class="section-title">🚄 Transportation Strategy</h2>
+                <div class="cost-comparison">
+                    <div class="cost-option not-recommended">
+                        <h3>❌ Not Recommended</h3>
+                        <p class="cost">21-Day JR Pass: ¥100,000</p>
+                        <p class="reason">Cost-ineffective for this route</p>
+                    </div>
+                    
+                    <div class="cost-option recommended">
+                        <h3>✅ Optimized Strategy</h3>
+                        <p class="cost">Regional Passes: ¥51,000</p>
+                        <div class="breakdown">
+                            <p>• JR Tokyo Wide Pass (3 days): ¥15,000</p>
+                            <p>• Individual tickets: ¥25,000</p>
+                            <p>• JR Kansai Wide Area Pass (5 days): ¥11,000</p>
+                        </div>
+                        <p class="savings">💰 Saves ¥49,000 with identical coverage!</p>
+                    </div>
+                </div>
+                
+                <div class="luggage-forwarding">
+                    <h3>📦 Professional Luggage Forwarding</h3>
+                    <p>Use takkyubin services (¥1,500-2,500 per transfer) to eliminate daily packing stress. Most hotels coordinate next-day delivery.</p>
                 </div>
             </div>
 
-            <div class="week-section week-3">
-                <h2 class="week-title">🏯 Week 3: Kansai Culture & Tokyo Shopping (Days 13-21)</h2>
-                <div class="destinations">
-                    <button class="destination" onclick="focusLocation(35.0116, 135.7681, 'Kyoto')" aria-label="Focus on Kyoto">
-                        <div class="destination-name">Kyoto</div>
-                        <div class="destination-days">Days 13-15 • Traditional Japan</div>
-                    </button>
-                    <button class="destination" onclick="focusLocation(34.6851, 135.8048, 'Nara')" aria-label="Focus on Nara">
-                        <div class="destination-name">Nara</div>
-                        <div class="destination-days">Day 16 • Ancient capital & deer</div>
-                    </button>
-                    <button class="destination" onclick="focusLocation(34.6937, 135.5023, 'Osaka')" aria-label="Focus on Osaka">
-                        <div class="destination-name">Osaka</div>
-                        <div class="destination-days">Days 17-18 • Food paradise</div>
-                    </button>
-                    <button class="destination" onclick="focusLocation(35.6762, 139.6503, 'Tokyo (Return)')" aria-label="Focus on Tokyo (Return)">
-                        <div class="destination-name">Tokyo (Return)</div>
-                        <div class="destination-days">Days 19-21 • Shopping finale</div>
-                    </button>
-                </div>
-            </div>
-
-            <div class="legend">
-                <h3>Map Legend</h3>
-                <div class="legend-item">
-                    <div class="legend-color week-1-color"></div>
-                    <span>Week 1: Tokyo Base & Day Trips</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color week-2-color"></div>
-                    <span>Week 2: Japanese Alps & Snow Country</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color week-3-color"></div>
-                    <span>Week 3: Kansai Culture Circuit</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color day-trip-color"></div>
-                    <span>Day Trip Destinations</span>
+            <!-- Winter Essentials -->
+            <div class="info-section winter-essentials">
+                <h2 class="section-title">❄️ Winter Travel Essentials</h2>
+                <div class="essentials-grid">
+                    <div class="essential-category">
+                        <h3>🧥 Clothing</h3>
+                        <ul>
+                            <li>Heavy winter coat</li>
+                            <li>Waterproof boots</li>
+                            <li>Thermal layers</li>
+                            <li>Hand/foot warmers</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="essential-category">
+                        <h3>📱 Technology</h3>
+                        <ul>
+                            <li>Portable phone charger</li>
+                            <li>Camera protection</li>
+                            <li>Offline maps download</li>
+                            <li>Weather app</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="essential-category">
+                        <h3>🎫 Advance Bookings</h3>
+                        <ul>
+                            <li>Shirakawa-go illumination tour</li>
+                            <li>Lakeside ryokan with Fuji views</li>
+                            <li>High-demand restaurants</li>
+                            <li>JR seat reservations</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        💰 This map is completely free! Built with Leaflet + OpenStreetMap • Hosted on GitHub Pages for $0/month
+        <div class="footer-content">
+            <p>💰 This interactive map is completely free! Built with Leaflet.js + OpenStreetMap</p>
+            <p>🌟 Hosted on GitHub Pages for $0/month • No API keys required</p>
+            <div class="footer-links">
+                <a href="https://github.com/Skolaaa/Japan_2026" target="_blank" rel="noopener" aria-label="View source code on GitHub">View Source Code</a>
+                <span class="separator">•</span>
+                <a href="#map" aria-label="Return to map">Back to Map</a>
+            </div>
+        </div>
     </footer>
 
-    <!-- Leaflet JavaScript -->
+    <!-- JavaScript Libraries -->
+    <!-- Leaflet Core -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" 
             crossorigin=""></script>
     
-    <!-- Travel Data -->
-    <script src="assets/js/travel_data.js"></script>
+    <!-- Leaflet Animation Plugins -->
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.polyline.snakeanim@0.1.1/dist/leaflet.polyline.snakeanim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-polylinedecorator@1.6.0/dist/leaflet.polylineDecorator.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.timeline@1.5.0/dist/leaflet.timeline.min.js"></script>
     
-    <!-- Main Application -->
+    <!-- Custom JavaScript -->
+    <script src="assets/js/travel_data.js"></script>
+    <script src="assets/js/timeline-controller.js"></script>
+    <script src="assets/js/animation-manager.js"></script>
     <script src="assets/js/map.js"></script>
+    
+    <!-- Performance monitoring (optional) -->
+    <script>
+        // Simple performance monitoring
+        window.addEventListener('load', function() {
+            const loadTime = performance.now();
+            console.log(`🚀 Page loaded in ${Math.round(loadTime)}ms`);
+            
+            // Report Core Web Vitals if supported
+            if ('PerformanceObserver' in window) {
+                new PerformanceObserver((list) => {
+                    for (const entry of list.getEntries()) {
+                        console.log(`📊 ${entry.name}: ${Math.round(entry.value)}ms`);
+                    }
+                }).observe({entryTypes: ['navigation', 'paint']});
+            }
+        });
+    </script>
 </body>
 </html>
